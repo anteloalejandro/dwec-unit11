@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer type="module">
+    import {Circle, animate} from './challenge.js'
+
+    const circles = []
+    const CIRCLE_NUM = 20
+    for (let i = 0; i < CIRCLE_NUM; i++) {
+      const INITIAL_X = Math.floor(Math.random()*innerWidth)
+      const INITIAL_Y = Math.floor(Math.random()*innerHeight)
+      const SIZE = Math.floor(Math.random()*7)+7
+      const SPEED_X = Math.random() < 0.5? 1 : -1 * (Math.floor(Math.random()*5)+4)
+      const SPEED_Y = Math.random() < 0.5? 1 : -1 * (Math.floor(Math.random()*5)+4)
+      const c = new Circle(INITIAL_X, INITIAL_Y, SIZE, SPEED_X, SPEED_Y)
+      circles.push(c)
+    }
+
+    animate(circles)
+  </script>
+</head>
+<body>
+  <canvas id="canvas"></canvas> 
+</body>
+</html>
